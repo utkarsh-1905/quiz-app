@@ -1,11 +1,24 @@
 import React from "react";
+<<<<<<< HEAD
 
 
+=======
+import styles from "./Form.module.css";
+import axios from "axios";
+>>>>>>> eb80bc8ff38329197119705139047f1c61c0106a
 const Form = () => {
-  const formSubmitHandler = (event) => {
+  const formSubmitHandler = async (event) => {
     event.preventDefault();
     console.log(event.target[0].value);
     console.log(event.target[1].value);
+    axios
+      .post("http://localhost:3005/start", {
+        number: event.target[0].value,
+        type: event.target[1].value,
+      })
+      .then((response) => {
+        console.log(response);
+      });
   };
 
   return (
