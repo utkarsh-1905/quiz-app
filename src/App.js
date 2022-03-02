@@ -1,10 +1,10 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {FormBt} from './components/BootForm'
-import {Title} from './components/Title'
+import { FormBt } from "./components/Form";
+import { Title } from "./components/Title";
 
 function App() {
-  document.body.style='background-color: #0F0F0F'
+  document.body.style = "background-color: #0F0F0F";
   return (
     <React.StrictMode>
       <Title name="Quiz" />

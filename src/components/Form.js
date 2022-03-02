@@ -1,59 +1,41 @@
+import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
-<<<<<<< HEAD
 
-
-=======
-import styles from "./Form.module.css";
-import axios from "axios";
->>>>>>> eb80bc8ff38329197119705139047f1c61c0106a
-const Form = () => {
-  const formSubmitHandler = async (event) => {
-    event.preventDefault();
-    console.log(event.target[0].value);
-    console.log(event.target[1].value);
-    axios
-      .post("http://localhost:3005/start", {
-        number: event.target[0].value,
-        type: event.target[1].value,
-      })
-      .then((response) => {
-        console.log(response);
-      });
-  };
-
+export const FormBt = () => {
   return (
-    <>
-      
-    </>
+    <React.Fragment>
+      <form>
+        <div className="form-group my-3">
+          <label htmlFor="numberQ" className="txt">
+            Number of Questions
+          </label>
+          <input
+            type="number"
+            className="form-control shadow-none bg-transparent text-white mx-2"
+            min="5"
+            max="10"
+            id="numberQ"
+            aria-describedby="number"
+            placeholder="5"
+          />
+        </div>
+        <div className="form-group my-3">
+          <label htmlFor="selectType" className="txt">
+            Select Topic
+          </label>
+          <select className="form-control shadow-none px-3" id="selectType">
+            <option value="react">React.js</option>
+            <option value="cpp">C++</option>
+            <option value="js">JavaScript</option>
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+            <option value="custom">Custom</option>
+          </select>
+        </div>
+        <div align="right">
+          <button className="btn btn-outline-warning">Submit</button>
+        </div>
+      </form>
+    </React.Fragment>
   );
 };
-
-export default Form;
-
-
-
-
-  // <>
-  //   <form className={styles.quizForm} onSubmit={formSubmitHandler}>
-  //     <label className={styles.formLabel} htmlFor="question">
-  //       Number of Questions
-  //     </label>
-  //     <input
-  //       className={styles.formElements}
-  //       type={"number"}
-  //       id="question"
-  //       placeholder={"5"}
-  //     />
-  //     <label className={styles.formLabel} htmlFor="type">
-  //       Ask me anything about
-  //     </label>
-  //     <select className={styles.formElements} name="type" id="type">
-  //       <option value="react">React.js</option>
-  //       <option value="cpp">C++</option>
-  //       <option value="js">JavaScript</option>
-  //       <option value="html">HTML</option>
-  //       <option value="css">CSS</option>
-  //     </select>
-  //     <button className={styles.formButton}>Start</button>
-  //   </form>
-  // </>
