@@ -12,7 +12,7 @@ export const FormBt = () => {
                 </div>
                 <div className="form-group my-3">
                     <label for="selectType" className="txt">Select Topic</label>
-                    <select className="form-control shadow-none" id="selectType">
+                    <select className="form-control shadow-none px-3" id="selectType">
                         <option value="react" >React.js</option>
                         <option value="cpp" >C++</option>
                         <option value="js" >JavaScript</option>
