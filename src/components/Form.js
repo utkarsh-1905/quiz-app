@@ -2,9 +2,34 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 
 export const FormBt = () => {
+  const submitFormHandler = async (e) => {
+    e.preventDefault();
+    const numberOfQues = e.target[0].value;
+    const type = e.target[1].value;
+    const body =
+      encodeURIComponent("number") +
+      "=" +
+      encodeURIComponent(numberOfQues) +
+      "&" +
+      encodeURIComponent("type") +
+      "=" +
+      encodeURIComponent(type);
+    console.log(type, numberOfQues);
+    const startQuiz = await fetch("http://localhost:3005/start", {
+      method: "post",
+      mode: "cors",
+      body: body,
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    });
+    const questions = await startQuiz.json();
+    // console.log(questions);
+  };
+
   return (
     <React.Fragment>
-      <form>
+      <form onSubmit={submitFormHandler}>
         <div className="form-group my-3">
           <label htmlFor="numberQ" className="txt">
             Number of Questions
@@ -17,6 +42,7 @@ export const FormBt = () => {
             id="numberQ"
             aria-describedby="number"
             placeholder="5"
+            required
           />
         </div>
         <div className="form-group my-3">
@@ -29,7 +55,6 @@ export const FormBt = () => {
             <option value="js">JavaScript</option>
             <option value="html">HTML</option>
             <option value="css">CSS</option>
-            <option value="custom">Custom</option>
           </select>
         </div>
         <div align="right">
