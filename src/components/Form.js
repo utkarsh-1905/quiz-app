@@ -1,5 +1,6 @@
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
+import styles from "./Form.module.css";
 
 export const FormBt = () => {
   const submitFormHandler = async (e) => {
@@ -24,7 +25,7 @@ export const FormBt = () => {
       },
     });
     const questions = await startQuiz.json();
-    // console.log(questions);
+    console.log(questions);
   };
 
   return (
